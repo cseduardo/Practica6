@@ -4,8 +4,6 @@
              xmlns:local="clr-namespace:Practica6"
              x:Class="Practica6.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Image Source="" Aspect="AspectFit"></Image>
 
 </ContentPage>

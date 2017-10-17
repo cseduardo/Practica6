@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica6.View.DatosSociales"
+             Title="Datos Sociales"
+             BackgroundColor="#0B243B"
+             Padding="20">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Text="Datos Sociales " Grid.Row="0" FontSize="Large" TextColor="White"></Label>
+            <Entry x:Name="correo" Placeholder="Correo" Grid.Row="1" BackgroundColor="White" Keyboard="Email"></Entry>
+            <Label x:Name="evalid" Grid.Row="2" TextColor="Red"></Label>
+            <Entry x:Name="github" Placeholder="GitHub" Grid.Row="3" BackgroundColor="White" Keyboard="Url"></Entry>
+            <Button Text="Siguiente" TextColor="White" Grid.Row="4" Clicked="nextPagen" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
+        </Grid>
+    </ScrollView>
+</ContentPage>
