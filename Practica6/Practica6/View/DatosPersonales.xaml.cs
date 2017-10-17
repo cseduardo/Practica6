@@ -26,7 +26,6 @@ namespace Practica6.View
         }
         public void nextPage(object sender, EventArgs e)
         {
-            /*the variables created in the locals class are called to save the value contained in the entry*/
             ViewModel.locals.nombre = name.Text;
             ViewModel.locals.ape_pat = lastname.Text;
             ViewModel.locals.ape_mat = surname.Text;
