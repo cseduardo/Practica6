@@ -20,7 +20,7 @@ namespace Practica6.View
             InitializeComponent();
             SQLiteAsyncConnection database;
             string db;
-            db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db3");
+            db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db");
             database = new SQLiteAsyncConnection(db);
             database.CreateTableAsync<TESHDatos>().Wait();
         }
