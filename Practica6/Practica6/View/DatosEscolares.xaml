@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica6.View.DatosEscolares"
+             xmlns:behaviors="clr-namespace:Practica6.Behaviors;assembly=Practica6"
              Title="Datos Escolares"
              BackgroundColor="#0B243B"
              Padding="20">
@@ -16,16 +17,16 @@
             </Grid.RowDefinitions>
             <Label Text="Datos Escolares " Grid.Row="0" FontSize="Large" TextColor="White"></Label>
             <!--<Entry x:Name="career" Placeholder="Carrera" Grid.Row="1" BackgroundColor="White"></Entry>-->
-            <Picker x:Name="career" Title="Semestre" Grid.Row="1" BackgroundColor="White">
+            <Picker x:Name="career" Title="Carrera" Grid.Row="1" BackgroundColor="White">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Licenciatura en Administración (LA)</x:String>
-                        <x:String>Licenciatura en Biólogia (LB)</x:String>
-                        <x:String>Licenciatura en Gastronomia (LG)</x:String>
-                        <x:String>Ingenieria Civil (IC)</x:String>
-                        <x:String>Ingenieria Industrial (II)</x:String>
-                        <x:String>Ingeria en Mecatronica (IM)</x:String>
-                        <x:String>Ingenieria en Sistemas Computacionales (ISC)</x:String>
+                        <x:String>LA  (Licenciatura en Administración)</x:String>
+                        <x:String>LB  (Licenciatura en Biólogia)</x:String>
+                        <x:String>LG  (Licenciatura en Gastronomia)</x:String>
+                        <x:String>IC  (Ingenieria Civil)</x:String>
+                        <x:String>II  (Ingenieria Industrial)</x:String>
+                        <x:String>IM  (Ingeria en Mecatronica)</x:String>
+                        <x:String>ISC (Ingenieria en Sistemas Computacionales)</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
@@ -48,7 +49,11 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            <Entry x:Name="matricula" Placeholder="Matricula" Grid.Row="3" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num"></Entry>
+            <Entry x:Name="matricula" Placeholder="Matricula" Grid.Row="3" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="8" />
+                </Entry.Behaviors>
+            </Entry>
             <Button x:Name="nextp" Text="Siguiente" TextColor="White" Grid.Row="4" Clicked="nextPaged" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
         </Grid>
     </ScrollView>

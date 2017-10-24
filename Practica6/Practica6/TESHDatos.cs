@@ -20,9 +20,9 @@ namespace Practica6
         int cod_postal;
         string municipio;
         string estado;
-        int num_telefono;
-        string carrera;
-        string semestre;
+        string num_telefono;
+        int carrera;
+        int semestre;
         string email;
         string git;
 
@@ -89,19 +89,19 @@ namespace Practica6
                 set { estado = value; }
             }
             [MaxLength(12)]
-            public int Telefono
+            public string Telefono
             {
                 get { return num_telefono; }
                 set { num_telefono = value; }
             }
             [MaxLength(15)]
-            public string Carrera
+            public int Carrera
             {
                 get { return carrera; }
                 set { carrera = value; }
             }
             [MaxLength(15)]
-            public string Semestre
+            public int Semestre
             {
                 get { return semestre; }
                 set { semestre = value; }

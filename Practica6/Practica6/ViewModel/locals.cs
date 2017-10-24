@@ -17,9 +17,9 @@ namespace Practica6.ViewModel
         public static int cod_postal;
         public static string municipio;
         public static string estado;
-        public static int num_telefono;
-        public static string carrera;
-        public static string semestre;
+        public static string num_telefono;
+        public static int carrera;
+        public static int semestre;
         public static int id;
         public static string email;
         public static string git;

@@ -38,10 +38,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="ISQLite.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TESHDatos.cs" />
     <Compile Include="ViewModel\locals.cs" />
@@ -54,15 +52,14 @@
     <Compile Include="View\DatosSociales.xaml.cs">
       <DependentUpon>DatosSociales.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MDatos.xaml.cs">
-      <DependentUpon>MDatos.xaml</DependentUpon>
+    <Compile Include="View\MM.xaml.cs">
+      <DependentUpon>MM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Principal.xaml.cs">
+      <DependentUpon>Principal.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -116,7 +113,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="View\MDatos.xaml">
+    <EmbeddedResource Include="View\Principal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\MM.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

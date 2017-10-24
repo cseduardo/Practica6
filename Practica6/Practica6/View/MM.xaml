@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica6.View.MM"
+             xmlns:behaviors="clr-namespace:Practica6.Behaviors;assembly=Practica6"
+             Title="Datos Personales"
+             BackgroundColor="#0B243B"
+             Padding="20">
+        <ScrollView>
+            <!--a grid of two columns is created by 10 rows-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--the views are created and given an order in the created grid-->
+                <Label Text="Datos Personales " Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" TextColor="White"></Label>
+                <Entry x:Name="name" Placeholder="Nombre" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="name_TextChanged"></Entry>
+                <Entry x:Name="lastname" Placeholder="Apellido Paterno" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="lastname_TextChanged"></Entry>
+                <Entry x:Name="surname" Placeholder="Apellido Materno" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="surname_TextChanged"></Entry>
+                <Entry x:Name="street" Placeholder="Calle" Grid.Row="4" Grid.Column="0" BackgroundColor="White" TextChanged="street_TextChanged"></Entry>
+            <Entry x:Name="street_num" Placeholder="Numero" Grid.Row="4" Grid.Column="1" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num" Unfocused="only_num"></Entry>
+                <Entry x:Name="col" Placeholder="Colonia" Grid.Row="5" Grid.Column="0" BackgroundColor="White" TextChanged="col_TextChanged"></Entry>
+            <Entry x:Name="cod_p" Placeholder="Cod. Postal" Grid.Row="5" Grid.Column="1" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num" Unfocused="only_num"></Entry>
+                <Entry x:Name="mun" Placeholder="Municipio" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="mun_TextChanged"></Entry>
+                <Entry x:Name="state" Placeholder="Estado" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="state_TextChanged"></Entry>
+            <Entry x:Name="telephone" Placeholder="Telefono" Keyboard="Telephone" Grid.Row="8" Grid.ColumnSpan="2" BackgroundColor="White" TextChanged="only_num" Unfocused="only_num"></Entry>
+                <Label Text="Datos Escolares " Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" TextColor="White"></Label>
+                <Picker x:Name="career" Title="Carrera" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>LA  (Licenciatura en Administración)</x:String>
+                            <x:String>LB  (Licenciatura en Biólogia)</x:String>
+                            <x:String>LG  (Licenciatura en Gastronomia)</x:String>
+                            <x:String>IC  (Ingenieria Civil)</x:String>
+                            <x:String>II  (Ingenieria Industrial)</x:String>
+                            <x:String>IM  (Ingeria en Mecatronica)</x:String>
+                            <x:String>ISC (Ingenieria en Sistemas Computacionales)</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Picker x:Name="picker" Title="Semestre" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Primero</x:String>
+                            <x:String>Segundo</x:String>
+                            <x:String>Tercero</x:String>
+                            <x:String>Cuarto</x:String>
+                            <x:String>Quinto</x:String>
+                            <x:String>Sexto</x:String>
+                            <x:String>Septimo</x:String>
+                            <x:String>Octavo</x:String>
+                            <x:String>Noveno</x:String>
+                            <x:String>Decimo</x:String>
+                            <x:String>Onceavo</x:String>
+                            <x:String>Decimo Segundo</x:String>
+                            <x:String>Decimo Tercero</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            <Entry x:Name="matricula" Placeholder="Matricula" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num" Unfocused="only_num" IsEnabled="False">
+                    <Entry.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="8" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Datos Sociales " Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Large" TextColor="White"></Label>
+                <Entry x:Name="correo" Placeholder="Correo" Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" Keyboard="Email">
+                    <Entry.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="40" />
+                     </Entry.Behaviors>
+                </Entry>
+                <Label x:Name="evalid" Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Red"></Label>
+                <Entry x:Name="github" Placeholder="GitHub" Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" Keyboard="Url">
+                    <Entry.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="30" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Button x:Name="actualizar" Text="Actualizar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
+            </Grid>
+        </ScrollView>
+</ContentPage>

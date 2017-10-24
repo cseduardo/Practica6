@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica6.View.Principal"
+             BackgroundColor="#0B243B"
+             Padding="20">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Agregar"
+                     Text="Nuevo"
+                     Icon="plus.png"
+                     Clicked="Agregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <SearchBar x:Name="buscarRSB"
+                       SearchButtonPressed="buscarRegistrosSB_SearchButtonPressed"
+                       TextChanged="buscarRegistrosSB_TextChanged"
+                       BackgroundColor="White">
+                </SearchBar>
+                <ListView x:Name="registrosLV"
+                      ItemsSource="{Binding items}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="registrosLV_ItemSelected"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="True"
+                      Refreshing="registrosLV_Refreshing">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem x:Name="delete"
+                                              Text="Eliminar Registro"
+                                              Clicked="delete_Clicked"
+                                              IsDestructive="True"
+                                              BindingContext="{Binding Matricula}"/>
+                                    <MenuItem x:Name="ma"
+                                              Text="Mostrar/Actualizar"
+                                              Clicked="ma_Clicked"
+                                              BindingContext="{Binding Matricula}"/>
+                                </ViewCell.ContextActions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Matricula" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="LightYellow" />
+                                    <Label x:Name="identificador" Text="{Binding Matricula}" Grid.Column="0" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                                    <Label Text="Nombre Completo" Grid.Column="1" Grid.Row="0" TextColor="LightYellow"/>
+                                    <Grid Grid.Column="1" Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label x:Name="nom" Text="{Binding Nombre}" Grid.Column="0" TextColor="White"></Label>
+                                        <Label Text="{Binding Ape_Pat}" Grid.Column="1" TextColor="White"></Label>
+                                        <Label Text="{Binding Ape_Mat}" Grid.Column="2" TextColor="White"></Label>
+                                    </Grid>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

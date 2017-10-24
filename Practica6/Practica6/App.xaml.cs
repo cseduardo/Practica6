@@ -13,7 +13,7 @@ namespace Practica6
         {
             InitializeComponent();
 
-            MainPage = new Practica6.View.DatosPersonales();
+            MainPage = new NavigationPage (new Practica6.View.Principal());
         }
 
         protected override void OnStart()
