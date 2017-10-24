@@ -4,20 +4,16 @@
              x:Class="Practica6.View.Principal"
              BackgroundColor="#0B243B"
              Padding="20">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="Agregar"
-                     Text="Nuevo"
-                     Icon="plus.png"
-                     Clicked="Agregar_Clicked"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
+                <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked"></Button>
                 <SearchBar x:Name="buscarRSB"
                        SearchButtonPressed="buscarRegistrosSB_SearchButtonPressed"
                        TextChanged="buscarRegistrosSB_TextChanged"
                        BackgroundColor="White">
                 </SearchBar>
+                
                 <ListView x:Name="registrosLV"
                       ItemsSource="{Binding items}"
                       CachingStrategy="RecycleElement"

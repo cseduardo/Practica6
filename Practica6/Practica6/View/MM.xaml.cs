@@ -127,7 +127,7 @@ namespace Practica6.View
                                                                 //var emailPattern = "^(?(\")(\").+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&\'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1.3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
                                                                 var emailPattern2 = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                                                                     @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
-                                                                if (correo == null)
+                                                                if (correo.Text == null)
                                                                 {
                                                                     evalid.Text = "Ingresa un correo";
                                                                 }
@@ -143,7 +143,7 @@ namespace Practica6.View
                                                                             Ape_Pat = lastname.Text,
                                                                             Ape_Mat = surname.Text,
                                                                             Calle = street.Text,
-                                                                            Num_calle = Convert.ToInt32(street_num),
+                                                                            Num_calle = Convert.ToInt32(street_num.Text),
                                                                             Colonia = col.Text,
                                                                             Municipio = mun.Text,
                                                                             Estado = state.Text,
@@ -152,7 +152,7 @@ namespace Practica6.View
                                                                             Carrera = career.SelectedIndex,
                                                                             Semestre = picker.SelectedIndex,
                                                                             Email = email,
-                                                                            Git = git
+                                                                            Git = git,
                                                                         };
                                                                         try
                                                                         {
