@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica6.View.Principal"
              BackgroundColor="#0B243B"
-             Padding="20">
+             Padding="20"
+             NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
-                <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked"></Button>
+                <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked" ></Button>
                 <SearchBar x:Name="buscarRSB"
                        SearchButtonPressed="buscarRegistrosSB_SearchButtonPressed"
                        TextChanged="buscarRegistrosSB_TextChanged"
@@ -18,8 +19,6 @@
                       ItemsSource="{Binding items}"
                       CachingStrategy="RecycleElement"
                       ItemSelected="registrosLV_ItemSelected"
-                      IsPullToRefreshEnabled="True"
-                      IsRefreshing="True"
                       Refreshing="registrosLV_Refreshing">
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -5,7 +5,8 @@
              xmlns:behaviors="clr-namespace:Practica6.Behaviors;assembly=Practica6"
              Title="Datos Personales"
              BackgroundColor="#0B243B"
-             Padding="20">
+             Padding="20"
+             NavigationPage.HasBackButton="False">
     <ScrollView>
         <!--a grid of two columns is created by 10 rows-->
         <Grid>

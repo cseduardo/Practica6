@@ -45,16 +45,16 @@ namespace Practica6.View
                 return;
         }
 
-        private void Agregar_Clicked(object sender, EventArgs e)
+        async void Agregar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new DatosPersonales());
+            await Navigation.PushAsync(new DatosPersonales());
         }
 
-        private void delete_Clicked(object sender, EventArgs e)
+        async void delete_Clicked(object sender, EventArgs e)
         {
             if (registrosLV.SelectedItem == null)
             {
-                DisplayAlert("HOLA!", "Selecciona un registro", "Aceptar");
+                await DisplayAlert("HOLA!", "Selecciona un registro", "Aceptar");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Practica6.View
 
                 };
                 database.Delete(registrosLV.SelectedItem);
-                Navigation.PushAsync(new Principal()).Wait();
+                await Navigation.PushAsync(new Principal());
             }           
         }
 

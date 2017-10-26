@@ -40,83 +40,83 @@ namespace Practica6.View
             correo.Text=dato.Email;
             github.Text = dato.Git;
         }
-        public void actualizar_Clicked(object sender, EventArgs e)
+        async void actualizar_Clicked(object sender, EventArgs e)
         {
             if (name.Text == null)
             {
-                DisplayAlert("Te falta", "Ingresa tú Nombre", "Aceptar");
+                await DisplayAlert("Te falta", "Ingresa tú Nombre", "Aceptar");
             }
             else
             {
                 if (lastname.Text == null)
                 {
-                    DisplayAlert("Te falta", "Ingresa tú Apellido Paterno", "Aceptar");
+                    await DisplayAlert("Te falta", "Ingresa tú Apellido Paterno", "Aceptar");
                 }
                 else
                 {
                     if (surname.Text == null)
                     {
-                        DisplayAlert("Te falta", "Ingresa tú Apellido Materno", "Aceptar");
+                        await DisplayAlert("Te falta", "Ingresa tú Apellido Materno", "Aceptar");
                     }
                     else
                     {
                         if (street.Text == null)
                         {
-                            DisplayAlert("Te falta", "Ingresa la calle en donde vives", "Aceptar");
+                            await DisplayAlert("Te falta", "Ingresa la calle en donde vives", "Aceptar");
                         }
                         else
                         {
                             if (street_num.Text == null)
                             {
-                                DisplayAlert("Te falta", "Ingresa el numero de tú casa", "Aceptar");
+                                await DisplayAlert("Te falta", "Ingresa el numero de tú casa", "Aceptar");
                             }
                             else
                             {
                                 if (col.Text == null)
                                 {
-                                    DisplayAlert("Te falta", "Ingresa el nombre de tú colonia", "Aceptar");
+                                    await DisplayAlert("Te falta", "Ingresa el nombre de tú colonia", "Aceptar");
                                 }
                                 else
                                 {
                                     if (cod_p.Text == null)
                                     {
-                                        DisplayAlert("Te falta", "Ingresa el codigo postal de donde vives", "Aceptar");
+                                        await DisplayAlert("Te falta", "Ingresa el codigo postal de donde vives", "Aceptar");
                                     }
                                     else
                                     {
                                         if (mun.Text == null)
                                         {
-                                            DisplayAlert("Te falta", "Ingresa el Municipio ó Delegacion en donde vives", "Aceptar");
+                                            await DisplayAlert("Te falta", "Ingresa el Municipio ó Delegacion en donde vives", "Aceptar");
                                         }
                                         else
                                         {
                                             if (state.Text == null)
                                             {
-                                                DisplayAlert("Te falta", "Ingresa el Estado donde vives", "Aceptar");
+                                                await DisplayAlert("Te falta", "Ingresa el Estado donde vives", "Aceptar");
                                             }
                                             else
                                             {
                                                 if (telephone.Text == null)
                                                 {
-                                                    DisplayAlert("Te falta", "Ingresa tú numero telefonico", "Aceptar");
+                                                    await DisplayAlert("Te falta", "Ingresa tú numero telefonico", "Aceptar");
                                                 }
                                                 else
                                                 {
                                                     if (career.SelectedItem == null)
                                                     {
-                                                        DisplayAlert("Te falta", "Selecciona una Carrera", "Aceptar");
+                                                        await DisplayAlert("Te falta", "Selecciona una Carrera", "Aceptar");
                                                     }
                                                     else
                                                     {
                                                         if (picker.SelectedItem == null)
                                                         {
-                                                            DisplayAlert("Te falta", "Selecciona ", "Aceptar");
+                                                            await DisplayAlert("Te falta", "Selecciona ", "Aceptar");
                                                         }
                                                         else
                                                         {
                                                             if (matricula.Text == null)
                                                             {
-                                                                DisplayAlert("Te falta", "Ingresa tú Matricula", "Aceptar");
+                                                                await DisplayAlert("Te falta", "Ingresa tú Matricula", "Aceptar");
                                                             }
                                                             else
                                                             {
@@ -160,9 +160,9 @@ namespace Practica6.View
                                                                         }
                                                                         catch (SQLiteException ex)
                                                                         {
-                                                                            DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
+                                                                            await DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
                                                                         }
-                                                                        Navigation.PushAsync(new View.Principal()).Wait();
+                                                                        await Navigation.PushAsync(new View.Principal());
                                                                     }
                                                                     else
                                                                     {

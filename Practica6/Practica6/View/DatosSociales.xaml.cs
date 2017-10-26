@@ -24,13 +24,11 @@ namespace Practica6.View
             db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db");
             database = new SQLiteAsyncConnection(db);
         }
-        public void nextPagen(object sender, EventArgs e)
-        {
-           
+        async void nextPagen(object sender, EventArgs e)
+        {          
             var email = correo.Text;
             var git = github.Text;
             var em = correo.Text;
-
             //var emailPattern = "^(?(\")(\").+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&\'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1.3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
             var emailPattern2 = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
@@ -61,8 +59,15 @@ namespace Practica6.View
                         Email = email,
                         Git = git
                     };
-                    database.InsertAsync(elementos).Wait(); ;
-                    Navigation.PushAsync(new View.DatosPersonales());
+                    try
+                    {
+                        await database.InsertAsync(elementos);
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        await DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
+                    }                   
+                    await Navigation.PushAsync(new View.DatosPersonales());
                 }
                 else
                 {
@@ -74,12 +79,11 @@ namespace Practica6.View
 
         }
 
-        private void finalizarR_Clicked(object sender, EventArgs e)
+        async void finalizarR_Clicked(object sender, EventArgs e)
         {
             var email = correo.Text;
             var git = github.Text;
             var em = correo.Text;
-
             //var emailPattern = "^(?(\")(\").+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&\'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1.3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
             var emailPattern2 = @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
                 @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$";
@@ -112,12 +116,12 @@ namespace Practica6.View
                     };
                     try
                     {
-                        database.InsertAsync(elementos).Wait();
+                        await database.InsertAsync(elementos);
                     }catch(SQLiteException ex)
                     {
-                        DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
+                        await DisplayAlert("Error", "No se pudo ingresar el registro por: "+ex, "Aceptar");
                     }                  
-                    Navigation.PushAsync(new View.Principal()).Wait();
+                    await Navigation.PushAsync(new View.Principal());
                 }
                 else
                 {
