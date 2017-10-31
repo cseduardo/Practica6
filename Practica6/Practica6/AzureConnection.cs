@@ -8,6 +8,6 @@ namespace Practica6
 {
     public static class AzureConnection
     {
-        public static string AzureURL = @"https://";
+        public static string AzureURL = @"http://registrosbded.azurewebsites.net";
     }
 }

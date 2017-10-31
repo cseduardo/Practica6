@@ -75,7 +75,7 @@ namespace Practica6.View
 
         }
 
-        private void finalizarR_Clicked(object sender, EventArgs e)
+        async void finalizarR_Clicked(object sender, EventArgs e)
         {
             var email = correo.Text;
             var git = github.Text;
@@ -113,12 +113,13 @@ namespace Practica6.View
                     };
                     try
                     {
-                        database.InsertAsync(elementos).Wait();
-                    }catch(SQLiteException ex)
+                        await Practica6.View.Principal.Tabla.InsertAsync(elementos);
+                    }
+                    catch(SQLiteException ex)
                     {
-                        DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
+                        await DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
                     }                  
-                    Navigation.PushAsync(new View.Principal()).Wait();
+                    await Navigation.PushAsync(new View.Principal());
                 }
                 else
                 {

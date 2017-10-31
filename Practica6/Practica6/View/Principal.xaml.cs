@@ -23,6 +23,13 @@ namespace Practica6.View
             InitializeComponent();
             cliente = new MobileServiceClient(AzureConnection.AzureURL);
             Tabla = cliente.GetTable<TESHDatos>();
+            LeerTabla();
+        }
+        private async void LeerTabla()
+        {
+            IEnumerable<TESHDatos> elementos = await Tabla.ToCollectionAsync();
+            items = new ObservableCollection<TESHDatos>(elementos);
+            BindingContext = this;
         }
 
         private void buscarRegistrosSB_SearchButtonPressed(object sender, EventArgs e)
@@ -47,23 +54,6 @@ namespace Practica6.View
         {
             Navigation.PushAsync(new DatosPersonales());
         }
-
-        //private async void delete_Clicked(object sender, EventArgs e)
-        //{
-        //    if (registrosLV.SelectedItem == null)
-        //    {
-        //        await DisplayAlert("HOLA!", "Selecciona un registro", "Aceptar");
-        //    }
-        //    else
-        //    {
-        //        var datos = new TESHDatos
-        //        {
-
-        //        };
-        //        await Tabla.DeleteAsync(registrosLV.SelectedItem as TESHDatos);
-        //        await Navigation.PushAsync(new Principal());
-        //    }           
-        //}
 
         async void ma_Clicked(object sender, EventArgs e)
         {

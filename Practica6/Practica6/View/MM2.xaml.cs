@@ -1,44 +1,41 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Practica6.ViewModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Text.RegularExpressions;
 
 namespace Practica6.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MM : ContentPage
-	{
-        SQLiteConnection database;
-        public MM (object selectedItem)
-		{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MM2 : ContentPage
+    {
+        public MM2(object selectedItem)
+        {
             var dato = selectedItem as TESHDatos;
             BindingContext = dato;
-			InitializeComponent ();
+            InitializeComponent();
             string db;
             db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db");
-            database = new SQLiteConnection(db);
-            matricula.Text=Convert.ToString(dato.Matricula);
-            name.Text=dato.Nombre;
-            lastname.Text=dato.Ape_Pat;
-            surname.Text=dato.Ape_Mat;
-            street.Text=dato.Calle;
-            street_num.Text=Convert.ToString(dato.Num_calle);
-            col.Text=dato.Colonia;
-            mun.Text=dato.Municipio;
-            state.Text=dato.Estado;
-            cod_p.Text=Convert.ToString(dato.Cod_Postal);
-            telephone.Text=Convert.ToString(dato.Telefono);
-            career.SelectedIndex=dato.Carrera;
-            picker.SelectedIndex=dato.Semestre;
-            correo.Text=dato.Email;
+            matricula.Text = Convert.ToString(dato.Matricula);
+            name.Text = dato.Nombre;
+            lastname.Text = dato.Ape_Pat;
+            surname.Text = dato.Ape_Mat;
+            street.Text = dato.Calle;
+            street_num.Text = Convert.ToString(dato.Num_calle);
+            col.Text = dato.Colonia;
+            mun.Text = dato.Municipio;
+            state.Text = dato.Estado;
+            cod_p.Text = Convert.ToString(dato.Cod_Postal);
+            telephone.Text = Convert.ToString(dato.Telefono);
+            career.SelectedIndex = dato.Carrera;
+            picker.SelectedIndex = dato.Semestre;
+            correo.Text = dato.Email;
             github.Text = dato.Git;
+            eliminado.IsToggled = dato.Deleted;
             identificador.Text = dato.ID;
         }
         async void actualizar_Clicked(object sender, EventArgs e)
@@ -154,11 +151,13 @@ namespace Practica6.View
                                                                             Semestre = picker.SelectedIndex,
                                                                             Email = email,
                                                                             Git = git,
+                                                                            Deleted=eliminado.IsToggled,
                                                                             ID=identificador.Text
+                                                                            
                                                                         };
                                                                         try
                                                                         {
-                                                                            database.Update(elementos);
+                                                                            await Practica6.View.Principal.Tabla.UndeleteAsync(elementos);
                                                                         }
                                                                         catch (Exception ex)
                                                                         {
@@ -171,7 +170,7 @@ namespace Practica6.View
                                                                         //aqui va el codigo si el correo es invalido
                                                                         evalid.Text = "Corrreo NO valido";
                                                                     }
-                                                                }                                       
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -237,14 +236,9 @@ namespace Practica6.View
             state.Text = state.Text.ToUpper();
         }
 
-        async void eliminar_Clicked(object sender, EventArgs e)
+        private void eliminar_Clicked(object sender, EventArgs e)
         {
-            var elementos = new TESHDatos
-            {
-                ID = identificador.Text
-            };
-            await Practica6.View.Principal.Tabla.DeleteAsync(elementos);
-            await Navigation.PushAsync(new Practica6.View.Principal());
+
         }
     }
 }

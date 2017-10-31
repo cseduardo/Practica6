@@ -10,7 +10,7 @@ namespace Practica6
 {
     public class TESHDatos
     {
-        int id;
+        string id;
         int matricula;
         string nombre;
         string ape_pat;
@@ -29,10 +29,10 @@ namespace Practica6
         bool deleted;
 
         [JsonProperty(PropertyName ="id")]
-        public int ID
+        public string ID
         {
-            get { return matricula; }
-            set { matricula = value; }
+            get { return id; }
+            set { id = value; }
         }
         [JsonProperty(PropertyName ="matricula")]
         public int Matricula
