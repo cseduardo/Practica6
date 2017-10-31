@@ -22,22 +22,20 @@ namespace Practica6.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
-        private MobileServiceUser user;
+        private MobileServiceUser usuario;
 
-        public async Task<bool> Authenticate()
+        public async Task<MobileServiceUser> Authenticate()
         {
-            var success = false;
             var message = string.Empty;
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
-                if (user == null)
+                if (usuario == null)
                 {
-                    user = await Practica6.View.Principal.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-                    if (user != null)
+                    usuario = await Practica6.View.Principal.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
+                    if (usuario != null)
                     {
-                        message = string.Format("You are now signed-in as {0}.", user.UserId);
-                        success = true;
+                        message = string.Format("You are now signed-in as {0}.", usuario.UserId);
                     }
                 }
             }
@@ -49,8 +47,7 @@ namespace Practica6.iOS
             // Display the success or failure message.
             UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
             avAlert.Show();
-
-            return success;
+            return usuario;
         }
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
