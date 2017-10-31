@@ -40,7 +40,7 @@ namespace Practica6.View
             correo.Text=dato.Email;
             github.Text = dato.Git;
         }
-        public void actualizar_Clicked(object sender, EventArgs e)
+        async void actualizar_Clicked(object sender, EventArgs e)
         {
             if (name.Text == null)
             {
@@ -158,11 +158,11 @@ namespace Practica6.View
                                                                         {
                                                                             database.Update(elementos);
                                                                         }
-                                                                        catch (SQLiteException ex)
+                                                                        catch (Exception ex)
                                                                         {
-                                                                            DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
+                                                                            await DisplayAlert("Error", "No se pudo ingresar el registro", "Aceptar");
                                                                         }
-                                                                        Navigation.PushAsync(new View.Principal()).Wait();
+                                                                        await Navigation.PushAsync(new View.Principal());
                                                                     }
                                                                     else
                                                                     {

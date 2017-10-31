@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using Newtonsoft.Json;
 
 namespace Practica6
 {
     public class TESHDatos
     {
-
+        int id;
         int matricula;
         string nombre;
         string ape_pat;
@@ -25,98 +26,109 @@ namespace Practica6
         int semestre;
         string email;
         string git;
+        bool deleted;
 
-            [PrimaryKey,MaxLength(8),Unique]
-            public int Matricula
-            {
-                get { return matricula; }
-                set { matricula = value; }
-            }
-
-            [MaxLength(50)]
-            public string Nombre
+        [JsonProperty(PropertyName ="id")]
+        public int ID
+        {
+            get { return matricula; }
+            set { matricula = value; }
+        }
+        [JsonProperty(PropertyName ="matricula")]
+        public int Matricula
+        {
+            get { return matricula; }
+            set { matricula = value; }
+        }
+        [JsonProperty(PropertyName = "nombre")]
+        public string Nombre
             {
                 get { return nombre; }
                 set { nombre = value; }
             }
-
-            [MaxLength(50),Column("Apellido Paterno")]
+        [JsonProperty(PropertyName = "ape_pat")]
             public string Ape_Pat
             {
                 get { return ape_pat; }
                 set { ape_pat = value; }
             }
-            [MaxLength(50),Column("Apellido Materno")]
-            public string Ape_Mat
+        [JsonProperty(PropertyName = "ape_mat")]
+        public string Ape_Mat
             {
                 get { return ape_mat; }
                 set { ape_mat = value; }
             }
-            [MaxLength(35)]
-            public string Calle
+        [JsonProperty(PropertyName = "calle")]
+        public string Calle
             {
                 get { return calle; }
                 set { calle = value; }
             }
-            [MaxLength(4), Column("Numero de Calle")]
-            public int Num_calle
+        [JsonProperty(PropertyName = "num_calle")]
+        public int Num_calle
             {
                 get { return num_calle; }
                 set { num_calle = value; }
             }
-            [MaxLength(40)]
-            public string Colonia
+        [JsonProperty(PropertyName = "colonia")]
+        public string Colonia
             {
                 get { return colonia; }
                 set { colonia = value; }
             }
-            [MaxLength(5), Column("Codigo Postal")]
-            public int Cod_Postal
+        [JsonProperty(PropertyName = "cod_postal")]
+        public int Cod_Postal
             {
                 get { return cod_postal; }
                 set { cod_postal = value; }
             }
-            [MaxLength(45)]
-            public string Municipio
+        [JsonProperty(PropertyName = "municipio")]
+        public string Municipio
             {
                 get { return municipio; }
                 set { municipio = value; }
             }
-            [MaxLength(45)]
-            public string Estado
+        [JsonProperty(PropertyName = "estado")]
+        public string Estado
             {
                 get { return estado; }
                 set { estado = value; }
             }
-            [MaxLength(12)]
-            public string Telefono
+        [JsonProperty(PropertyName = "num_telefono")]
+        public string Telefono
             {
                 get { return num_telefono; }
                 set { num_telefono = value; }
             }
-            [MaxLength(15)]
-            public int Carrera
+        [JsonProperty(PropertyName = "carrera")]
+        public int Carrera
             {
                 get { return carrera; }
                 set { carrera = value; }
             }
-            [MaxLength(15)]
-            public int Semestre
+        [JsonProperty(PropertyName = "semestre")]
+        public int Semestre
             {
                 get { return semestre; }
                 set { semestre = value; }
             }
-            [MaxLength(40)]
-            public string Email
+        [JsonProperty(PropertyName = "email")]
+        public string Email
             {
                 get { return email; }
                 set { email = value; }
             }
-            [MaxLength(30)]
-            public string Git
-            {
+        [JsonProperty(PropertyName = "git")]
+        public string Git
+        {
                 get { return git; }
                 set { git = value; }
-            }
         }
+        [JsonProperty(PropertyName ="deleted")]
+        public bool Deleted
+        {
+            get { return deleted; }
+            set { deleted = value; }
+        }
+    }
 }

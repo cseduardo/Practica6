@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Practica6.View.Principal"
+             x:Class="Practica6.View.Principal2"
              BackgroundColor="#0B243B"
              Padding="20"
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
-                <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked" TextColor="White" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Switch x:Name="mtodo" IsToggled="False" Toggled="mtodo_Toggled" Grid.Column="0"></Switch>
+                    <Switch x:Name="mtodo" IsToggled="True" Toggled="mtodo_Toggled" Grid.Column="0"></Switch>
                     <Label Text="Mostrar eliminados" Grid.Column="1" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                 </Grid>
                 <SearchBar x:Name="buscarRSB"
@@ -23,7 +22,7 @@
                        BackgroundColor="White"
                        Placeholder="BUSQUEDA POR APELLIDO">
                 </SearchBar>
-                
+
                 <ListView x:Name="registrosLV"
                       ItemsSource="{Binding items}"
                       CachingStrategy="RecycleElement"
@@ -35,11 +34,6 @@
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.ContextActions>
-                                    <!--<MenuItem x:Name="delete"
-                                              Text="Eliminar Registro"
-                                              Clicked="delete_Clicked"
-                                              IsDestructive="True"
-                                              BindingContext="{Binding Matricula}"/>-->
                                     <MenuItem x:Name="ma"
                                               Text="Mostrar/Actualizar"
                                               Clicked="ma_Clicked"

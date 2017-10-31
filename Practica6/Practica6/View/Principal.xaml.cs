@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SQLite;
 using System.Collections.ObjectModel;
+using Microsoft.WindowsAzure.MobileServices;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,19 +13,16 @@ namespace Practica6.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Principal : ContentPage
     {
-        SQLiteConnection database;
         public ObservableCollection<TESHDatos> items { get; set; }
+
+        public static MobileServiceClient cliente;
+        public static IMobileServiceTable<TESHDatos> Tabla;
 
         public Principal()
         {
             InitializeComponent();
-
-            string db;
-            db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db");
-            database = new SQLiteConnection(db);
-            database.CreateTable<TESHDatos>();
-            items = new ObservableCollection<TESHDatos>(database.Table<TESHDatos>());
-            BindingContext = this;
+            cliente = new MobileServiceClient(AzureConnection.AzureURL);
+            Tabla = cliente.GetTable<TESHDatos>();
         }
 
         private void buscarRegistrosSB_SearchButtonPressed(object sender, EventArgs e)
@@ -50,22 +48,22 @@ namespace Practica6.View
             Navigation.PushAsync(new DatosPersonales());
         }
 
-        private void delete_Clicked(object sender, EventArgs e)
-        {
-            if (registrosLV.SelectedItem == null)
-            {
-                DisplayAlert("HOLA!", "Selecciona un registro", "Aceptar");
-            }
-            else
-            {
-                var datos = new TESHDatos
-                {
+        //private async void delete_Clicked(object sender, EventArgs e)
+        //{
+        //    if (registrosLV.SelectedItem == null)
+        //    {
+        //        await DisplayAlert("HOLA!", "Selecciona un registro", "Aceptar");
+        //    }
+        //    else
+        //    {
+        //        var datos = new TESHDatos
+        //        {
 
-                };
-                database.Delete(registrosLV.SelectedItem);
-                Navigation.PushAsync(new Principal()).Wait();
-            }           
-        }
+        //        };
+        //        await Tabla.DeleteAsync(registrosLV.SelectedItem as TESHDatos);
+        //        await Navigation.PushAsync(new Principal());
+        //    }           
+        //}
 
         async void ma_Clicked(object sender, EventArgs e)
         {
@@ -85,7 +83,14 @@ namespace Practica6.View
                {
                    return true;
                });
+        }
 
+        private void mtodo_Toggled(object sender, ToggledEventArgs e)
+        {
+            if (mtodo.IsToggled == true)
+            {
+                Navigation.PushAsync(new Principal2());
+            }
         }
     }
 }

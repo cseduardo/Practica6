@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using Practica6.ViewModel;
+using Microsoft.WindowsAzure.MobileServices;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,7 +25,7 @@ namespace Practica6.View
             db = DependencyService.Get<ISQLite>().GetLocalFilePath("TESHDB.db");
             database = new SQLiteAsyncConnection(db);
         }
-        public void nextPagen(object sender, EventArgs e)
+        async void nextPagen(object sender, EventArgs e)
         {
            
             var email = correo.Text;
@@ -61,8 +62,8 @@ namespace Practica6.View
                         Email = email,
                         Git = git
                     };
-                    database.InsertAsync(elementos).Wait(); ;
-                    Navigation.PushAsync(new View.DatosPersonales());
+                    await Practica6.View.Principal.Tabla.InsertAsync(elementos);
+                    await Navigation.PushAsync(new View.DatosPersonales());
                 }
                 else
                 {

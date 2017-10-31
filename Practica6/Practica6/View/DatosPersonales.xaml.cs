@@ -118,8 +118,7 @@ namespace Practica6.View
             else
             {
                 DisplayAlert("", "Solo Numeros", "Aceptar");
-            }
-            
+            }          
         }
 
         private void name_TextChanged(object sender, TextChangedEventArgs e)
@@ -155,6 +154,11 @@ namespace Practica6.View
         private void state_TextChanged(object sender, TextChangedEventArgs e)
         {
             state.Text = state.Text.ToUpper();
+        }
+
+        private void street_num_Completed(object sender, EventArgs e)
+        {
+
         }
     }
 }

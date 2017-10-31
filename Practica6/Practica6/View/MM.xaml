@@ -103,7 +103,10 @@
                         <behaviors:EntryLengthValidatorBehavior MaxLength="30" />
                     </Entry.Behaviors>
                 </Entry>
-                <Button x:Name="actualizar" Text="Actualizar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
-            </Grid>
+                <Button x:Name="actualizar" Text="Actualizar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" IsEnabled="True" IsVisible="True"></Button>
+            <Button x:Name="actualizar" Text="Cancelar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" IsEnabled="False" IsVisible="False"></Button>
+            <Button x:Name="actualizar" Text="Aceptar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" IsEnabled="False" IsVisible="False"></Button>
+            <Button x:Name="actualizar" Text="Eliminar" TextColor="White" Grid.Row="17" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" IsVisible="True" IsEnabled="True"></Button>
+        </Grid>
         </ScrollView>
 </ContentPage>

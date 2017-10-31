@@ -47,7 +47,7 @@
                     <behaviors:EntryLengthValidatorBehavior MaxLength="35" />
                 </Entry.Behaviors>
             </Entry>
-            <Entry x:Name="street_num" Placeholder="Numero" Grid.Row="4" Grid.Column="1" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num">
+            <Entry x:Name="street_num" Placeholder="Numero" Grid.Row="4" Grid.Column="1" BackgroundColor="White" Keyboard="Numeric" TextChanged="only_num" Completed="street_num_Completed">
                 <Entry.Behaviors>
                     <behaviors:EntryLengthValidatorBehavior MaxLength="4" />
                 </Entry.Behaviors>
