@@ -32,10 +32,10 @@ namespace Practica6.iOS
                 // Sign in with Facebook login using a server-managed flow.
                 if (usuario == null)
                 {
-                    usuario = await Practica6.View.Principal.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
+                    usuario = await Practica6.View.Principal.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "http://registrosbded.azurewebsites.net/.auth/login/facebook/callback");
                     if (usuario != null)
                     {
-                        message = string.Format("You are now signed-in as {0}.", usuario.UserId);
+                        message = string.Format("Tú haz ingresado como {0}.", usuario.UserId);
                     }
                 }
             }
