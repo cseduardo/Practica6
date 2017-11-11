@@ -18,7 +18,7 @@ namespace Practica6
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new Practica6.View.Principal());
+            MainPage = new NavigationPage (new Practica6.View.Log_in());
         }
 
         protected override void OnStart()

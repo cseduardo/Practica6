@@ -42,17 +42,6 @@
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="ISQLAzure.cs" />
     <Compile Include="ISQLite.cs" />
-    <Compile Include="obj\Debug\Practica6.App.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.DatosEscolares.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.DatosPersonales.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.DatosSociales.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.MM.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.MM2.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.Principal.xaml.g.cs" />
-    <Compile Include="obj\Debug\Practica6.View.Principal2.xaml.g.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TESHDatos.cs" />
     <Compile Include="ViewModel\locals.cs" />
@@ -64,6 +53,9 @@
     </Compile>
     <Compile Include="View\DatosSociales.xaml.cs">
       <DependentUpon>DatosSociales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Log_in.xaml.cs">
+      <DependentUpon>Log_in.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MM.xaml.cs">
       <DependentUpon>MM.xaml</DependentUpon>
@@ -133,19 +125,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="bin\Debug\Practica6.dll.config" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\Practica6.csproj.App.config" />
-    <None Include="obj\Debug\Practica6.csproj.CopyComplete" />
-    <None Include="obj\Debug\Practica6.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\Practica6.csprojResolveAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Release\" />
     <Folder Include="Model\" />
-    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="View\DatosEscolares.xaml">
@@ -190,44 +173,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Microsoft.Azure.Mobile.Client.dll" />
-    <Content Include="bin\Debug\Microsoft.Azure.Mobile.Client.SQLiteStore.dll" />
-    <Content Include="bin\Debug\Microsoft.Azure.Mobile.Client.SQLiteStore.xml" />
-    <Content Include="bin\Debug\Microsoft.Azure.Mobile.Client.xml" />
-    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
-    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
-    <Content Include="bin\Debug\PCLCrypto.dll" />
-    <Content Include="bin\Debug\PCLCrypto.xml" />
-    <Content Include="bin\Debug\Practica6.dll" />
-    <Content Include="bin\Debug\Practica6.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Practica6.pdb" />
-    <Content Include="bin\Debug\SQLite-net.dll" />
-    <Content Include="bin\Debug\SQLite-net.pdb" />
-    <Content Include="bin\Debug\SQLite-net.xml" />
-    <Content Include="bin\Debug\SQLitePCLRaw.batteries_green.dll" />
-    <Content Include="bin\Debug\SQLitePCLRaw.batteries_v2.dll" />
-    <Content Include="bin\Debug\SQLitePCLRaw.core.dll" />
-    <Content Include="bin\Debug\System.Net.Http.dll" />
-    <Content Include="bin\Debug\System.Net.Http.Extensions.dll" />
-    <Content Include="bin\Debug\System.Net.Http.Extensions.xml" />
-    <Content Include="bin\Debug\System.Net.Http.Primitives.dll" />
-    <Content Include="bin\Debug\System.Net.Http.Primitives.xml" />
-    <Content Include="bin\Debug\System.Net.Http.xml" />
-    <Content Include="bin\Debug\Validation.dll" />
-    <Content Include="bin\Debug\Validation.xml" />
-    <Content Include="bin\Debug\Xamarin.Forms.Core.dll" />
-    <Content Include="bin\Debug\Xamarin.Forms.Core.pdb" />
-    <Content Include="bin\Debug\Xamarin.Forms.Core.xml" />
-    <Content Include="bin\Debug\Xamarin.Forms.Platform.dll" />
-    <Content Include="bin\Debug\Xamarin.Forms.Platform.pdb" />
-    <Content Include="bin\Debug\Xamarin.Forms.Xaml.dll" />
-    <Content Include="bin\Debug\Xamarin.Forms.Xaml.pdb" />
-    <Content Include="bin\Debug\Xamarin.Forms.Xaml.xml" />
-    <Content Include="obj\Debug\Practica6.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Practica6.dll" />
-    <Content Include="obj\Debug\Practica6.pdb" />
+    <EmbeddedResource Include="View\Log_in.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

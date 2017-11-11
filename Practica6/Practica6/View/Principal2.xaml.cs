@@ -15,14 +15,11 @@ namespace Practica6.View
     public partial class Principal2 : ContentPage
     {
         public ObservableCollection<TESHDatos> items { get; set; }
-
-        public static MobileServiceClient cliente;
         public static IMobileServiceTable<TESHDatos> Tabla;
         public Principal2()
         {
             InitializeComponent();
-            cliente = new MobileServiceClient(AzureConnection.AzureURL);
-            Tabla = cliente.GetTable<TESHDatos>();
+            Tabla = View.Log_in.cliente.GetTable<TESHDatos>();
             LeerTablaU();
         }
         private async void LeerTablaU()

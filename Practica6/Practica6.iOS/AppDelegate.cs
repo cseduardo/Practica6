@@ -32,7 +32,7 @@ namespace Practica6.iOS
                 // Sign in with Facebook login using a server-managed flow.
                 if (usuario == null)
                 {
-                    usuario = await Practica6.View.Principal.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "http://registrosbded.azurewebsites.net/.auth/login/facebook/callback");
+                    usuario = await Practica6.View.Log_in.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController,MobileServiceAuthenticationProvider.Facebook, "registrosbdedtesh.azurewebsites.net");
                     if (usuario != null)
                     {
                         message = string.Format("Tú haz ingresado como {0}.", usuario.UserId);
@@ -45,7 +45,8 @@ namespace Practica6.iOS
             }
 
             // Display the success or failure message.
-            UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
+            UIAlertViewDelegate iUAlert = null;
+            UIAlertView avAlert = new UIAlertView("Sign-in result", message, iUAlert, "OK", null);
             avAlert.Show();
             return usuario;
         }

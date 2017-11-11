@@ -25,7 +25,7 @@ namespace Practica6.UWP
         {
             try
             {
-                usuario = await Practica6.View.Principal.cliente.LoginAsync(MobileServiceAuthenticationProvider.Facebook,true);
+                usuario = await Practica6.View.Log_in.cliente.LoginAsync(MobileServiceAuthenticationProvider.Facebook, "registrosbdedtesh.azurewebsites.net");
                 if (usuario != null)
                 {
                     await new MessageDialog(usuario.UserId, "Bienvenido").ShowAsync();

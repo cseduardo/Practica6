@@ -21,7 +21,7 @@ namespace Practica6.Droid
             try
             {
                 // Sign in with Facebook login using a server-managed flow.
-                usuario = await Practica6.View.Principal.cliente.LoginAsync(this,MobileServiceAuthenticationProvider.Facebook, @"http://registrosbded.azurewebsites.net/.auth/login/facebook/callback");
+                usuario = await Practica6.View.Log_in.cliente.LoginAsync(this,MobileServiceAuthenticationProvider.Facebook, "registrosbdedtesh.azurewebsites.net");
                 if (usuario != null)
                 {
                     message = string.Format("Tú haz ingresado como {0}.",
