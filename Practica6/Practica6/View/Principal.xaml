@@ -8,8 +8,15 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical">
-                
-                <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked" TextColor="White" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15"></Button>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Agregar" Text="Nuevo Registro" Clicked="Agregar_Clicked" TextColor="White" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" Grid.Column="0"></Button>
+                    <Button x:Name="salir" Text=" Salir de la Sesion" Clicked="salir_Clicked" TextColor="White" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" Grid.Column="0"></Button>
+                </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>

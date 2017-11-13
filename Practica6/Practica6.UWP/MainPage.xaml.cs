@@ -37,6 +37,13 @@ namespace Practica6.UWP
             }
             return usuario;
         }
+
+        public async Task<bool> LogoutAsync()
+        {
+            await Practica6.View.Log_in.cliente.LogoutAsync();
+            return true;
+        }
+
         public MainPage()
         {
             this.InitializeComponent();

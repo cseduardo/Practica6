@@ -10,5 +10,6 @@ namespace Practica6
     public interface ISQLAzure
     {
         Task<MobileServiceUser> Authenticate();
+        Task<bool> LogoutAsync();
     }
 }

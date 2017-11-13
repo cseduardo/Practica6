@@ -97,5 +97,15 @@ namespace Practica6.View
                 Navigation.PushAsync(new Principal2());
             }
         }
+
+        private async void salir_Clicked(object sender, EventArgs e)
+        {
+            bool loggedOut = false;
+
+            if (App.Authenticator != null)
+            {
+                loggedOut = await App.Authenticator.LogoutAsync();
+            }
+        }
     }
 }

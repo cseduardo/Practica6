@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
+using Android.Webkit;
 
 namespace Practica6.Droid
 {
@@ -39,6 +40,13 @@ namespace Practica6.Droid
             builder.SetTitle("Sign-in result");
             builder.Create().Show();
             return usuario;
+        }
+
+        public async Task<bool> LogoutAsync()
+        {
+            CookieManager.Instance.RemoveAllCookie();
+            await Practica6.View.Log_in.cliente.LogoutAsync();
+            return true;
         }
 
         protected override void OnCreate(Bundle bundle)

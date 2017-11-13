@@ -45,10 +45,18 @@ namespace Practica6.iOS
             }
 
             // Display the success or failure message.
-            UIAlertViewDelegate iUAlert = null;
-            UIAlertView avAlert = new UIAlertView("Sign-in result", message, iUAlert, "OK", null);
+            UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
             avAlert.Show();
             return usuario;
+        }
+        public async Task<bool> LogoutAsync()
+        {
+            foreach (var cookie in NSHttpCookieStorage.SharedStorage.Cookies)
+            {
+                NSHttpCookieStorage.SharedStorage.DeleteCookie(cookie);
+            }
+            await Practica6.View.Log_in.cliente.LogoutAsync();
+            return true;
         }
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
