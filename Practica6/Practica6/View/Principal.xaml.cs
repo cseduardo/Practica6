@@ -105,6 +105,7 @@ namespace Practica6.View
             if (App.Authenticator != null)
             {
                 loggedOut = await App.Authenticator.LogoutAsync();
+                await Navigation.PushAsync(new Log_in());
             }
         }
     }

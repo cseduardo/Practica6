@@ -103,7 +103,7 @@
                     <behaviors:EntryLengthValidatorBehavior MaxLength="30" />
                 </Entry.Behaviors>
             </Entry>
-            <Label Text="Quitar de eliminados" Grid.Row="17" Grid.Column="0"></Label>
+            <Label Text="Eliminado" Grid.Row="17" Grid.Column="0" TextColor="White"></Label>
             <Switch x:Name="eliminado" Grid.Column="1" Grid.Row="17"></Switch>
             <Button x:Name="actualizar" Text="Actualizar" TextColor="White" Grid.Row="18" Grid.Column="0" Clicked="actualizar_Clicked" BackgroundColor="#0174DF" BorderColor="White" BorderRadius="15" IsEnabled="True" IsVisible="True"></Button>
             <Label x:Name="identificador" IsVisible="False" Grid.Row="19" Grid.Column="0"></Label>
